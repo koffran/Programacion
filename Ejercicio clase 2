@@ -1,0 +1,121 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Se ingresa LEJAGO, SEXO y las 3 notas (1-10) del curso de ingreso (Prog, Mat, Lect) de n alumnos.
+Se necesita saber:
+    -El promedio de cada alumno
+    -Cantidad de alumnos que aprobaron el curso de ingreso.
+    -Cantidad de alumnos que desaprobaron programacion inicial.
+    -Cantidad de alumnas que aprobaron matematica inicial.
+    -Promedio general de todos los alumnos.
+    -Promedio general por materia.
+    -Legajo del alumno con mayor promedio.
+    -Legajo del alumno con menor promedio.*/
+
+int main()
+{
+    char seguir = 's';
+    int legajo;
+    char sexo;
+    int prog;
+    int mat;
+    int lect;
+    int suma;
+    int maxProm;
+    int minProm;
+    int flag = 0;
+
+    int contAprob =0;
+    int contDesapProg =0;
+    int contAlumnaMat = 0;
+    int contAlumnos = 0;
+
+    float acumPromedios = 0;
+    int acumMat=0;
+    int acumProg=0;
+    int acumLect=0;
+
+    float promedioMat;
+    float promedioProg;
+    float promedioLect;
+    float promedioGeneral;
+    float promAlum;
+
+
+
+    while (seguir!='n')
+    {
+        printf("\nIngrese el numero de legajo\n");
+        scanf("%d",&legajo);
+        printf("Ingrese el sexo\n");
+        sexo=getche();
+        printf("\nIngrese la nota de programacion\n");
+        scanf("%d",&prog);
+        printf("Ingrese la nota de matematica\n");
+        scanf("%d",&mat);
+        printf("Ingrese la nota de lectura\n");
+        scanf("%d",&lect);
+
+
+        if (prog >= 4)
+        {
+           if(lect >=4 && mat>=4)
+           {
+               contAprob ++;
+           }
+        }
+        else
+        {
+            contDesapProg++;
+        }
+
+        if (mat>=4 && sexo =='f')
+        {
+            contAlumnaMat++;
+        }
+
+
+
+        suma = (prog+mat+lect);
+        promAlum = (float)suma /3;
+        printf("El promedio del alumno es: %.2f\n",promAlum);
+
+        if (flag == 0 || promAlum >= maxProm)
+        {
+            maxProm = promAlum;
+        }
+
+
+        if (flag == 0 || promAlum <= minProm)
+        {
+            minProm = promAlum;
+            flag =1;
+        }
+
+        acumMat+=mat;
+        acumProg+=prog;
+        acumLect+=lect;
+        acumPromedios+=promAlum;
+
+        contAlumnos++;
+        printf("Desea continuar?\n");
+        seguir= getche();
+
+    }
+
+    promedioMat = (float)acumMat / contAlumnos;
+    promedioProg = (float)acumProg / contAlumnos;
+    promedioLect = (float)acumLect / contAlumnos;
+    promedioGeneral = acumPromedios /contAlumnos;
+
+    printf("\nLa cantidad de alumnos que aprobaron es: %d\n",contAprob);
+    printf("La cantidad de alumnos que desaprobo programacion es: %d\n",contDesapProg);
+    printf("La cantidad de alumnas que aprobo matematica es: %d\n",contAlumnaMat);
+    printf("El promedio general es: %f\n", promedioGeneral);
+    printf("El promedio general de matematica es: %f\n", promedioMat);
+    printf("El promedio general de programacion es: %f\n", promedioProg);
+    printf("El promedio general de lectura es: %f\n", promedioLect);
+    printf("El promedio maximo es: %f\n",maxProm); //falla
+    printf("El promedio minimo es: %f\n",minProm); //falla
+
+    return 0;
+}
