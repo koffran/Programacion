@@ -15,13 +15,15 @@ int main()
 {
     char seguir = 's';
     int legajo;
+    int legajoMax;
+    int legajoMin;
     char sexo;
     int prog;
     int mat;
     int lect;
     int suma;
-    int maxProm;
-    int minProm;
+    float maxProm;
+    float minProm;
     int flag = 0;
 
     int contAprob =0;
@@ -79,15 +81,17 @@ int main()
         promAlum = (float)suma /3;
         printf("El promedio del alumno es: %.2f\n",promAlum);
 
-        if (flag == 0 || promAlum >= maxProm)
+        if (flag == 0 || promAlum > maxProm)
         {
             maxProm = promAlum;
+            legajoMax=legajo;
         }
 
 
-        if (flag == 0 || promAlum <= minProm)
+        if (flag == 0 || promAlum < minProm)
         {
             minProm = promAlum;
+            legajoMin = legajo;
             flag =1;
         }
 
@@ -110,12 +114,11 @@ int main()
     printf("\nLa cantidad de alumnos que aprobaron es: %d\n",contAprob);
     printf("La cantidad de alumnos que desaprobo programacion es: %d\n",contDesapProg);
     printf("La cantidad de alumnas que aprobo matematica es: %d\n",contAlumnaMat);
-    printf("El promedio general es: %f\n", promedioGeneral);
-    printf("El promedio general de matematica es: %f\n", promedioMat);
-    printf("El promedio general de programacion es: %f\n", promedioProg);
-    printf("El promedio general de lectura es: %f\n", promedioLect);
-    printf("El promedio maximo es: %f\n",maxProm); //falla
-    printf("El promedio minimo es: %f\n",minProm); //falla
-
+    printf("El promedio general es: %.2f\n", promedioGeneral);
+    printf("El promedio general de matematica es: %.2f\n", promedioMat);
+    printf("El promedio general de programacion es: %.2f\n", promedioProg);
+    printf("El promedio general de lectura es: %.2f\n", promedioLect);
+    printf("El leajo con promedio maximo es: %d y su promedio es: %.2f\n",legajoMax,maxProm);
+    printf("El leajo con promedio minimo es: %d y su promedio es: %.2f\n",legajoMin,minProm);
     return 0;
 }
