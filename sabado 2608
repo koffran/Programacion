@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int legajo;
+    int nota;
+    char sexo;
+    char seguir;
+
+    int contador=0;
+    int contMasc=0;
+    int contFem=0;
+    int contAprob=0;
+    float porcentajeAprob;
+    float porcentajeMasc;
+    float porcentajeFem;
+    int max;
+    int maxLegajo;
+    int flag=0;
+
+    do
+    {
+        printf("Ingrese el numero de legajo: ");
+        scanf("%d",&legajo);
+
+        printf("Ingrese el sexo\n");
+        sexo=getche();
+        while (sexo != 'm' && sexo!='f')
+        {
+            printf("\nIngrese f para femenino o m para masculino");
+            sexo=getche();
+        }
+
+        if (sexo == 'm')
+        {
+            contMasc++;
+        }
+        else
+        {
+            contFem++;
+        }
+
+
+        printf("Ingrese la nota");
+        scanf("%d",&nota);
+
+       while (nota<=0 || nota >10)
+        {
+            printf("Ingrese una nota correcta entre 1 y 10");
+            scanf("%d",&nota);
+        }
+
+        if (nota>4)
+        {
+            contAprob++;
+        }
+
+
+        if (flag = 0 || nota >max)
+        {
+            max = nota;
+            maxLegajo = legajo;
+        }
+
+        contador++;
+        printf("\nDesea continuar?\n");
+        seguir = getche();
+    }while (seguir != 'n');
+
+    porcentajeAprob = ((float)contAprob*100) / contador;
+    porcentajeMasc = ((float)contMasc*100) / contador;
+    porcentajeFem = ((float)contFem*100) / contador;
+
+    printf("La cantidad de alumnos es: %d\n",contMasc);
+    printf("La cantidad de alumnas es: %d\n",contFem);
+    printf("El porcentaje de aprobados es: %f\n",porcentajeAprob);
+    printf("El porcentaje de alumnos  es: %f\n",porcentajeMasc);
+    printf("El porcentaje de alumnas es: %f\n",porcentajeFem);
+    printf("El legajo del alumno con mayor nota es: %d",maxLegajo;
+
+    return 0;
+}
