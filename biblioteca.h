@@ -24,3 +24,15 @@ float sumar(float,float);
   *
   */
   float multiplicar (float,float);
+
+/** \brief Realiza la division entre dos numeros
+   *
+   * \param Valor de tipo float que representa un numero
+   * \param Valor de tipo float que representa un numero
+   * \return alor de tipo float que representa el resultado de la division entre dos numeros
+   *
+   */
+
+   float dividir (float,float);
+
+   int factorial(int );
