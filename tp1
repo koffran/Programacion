@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int sumar(int num1, int num2);
+int restar(int num1, int num2);
+int dividir(int num1, int num2);
+int multiplicar(int num1, int num2);
+
+
+int main()
+{
+    char seguir='s';
+    int opcion=0;
+
+    int numero1;
+    int numero2;
+    int resultado;
+
+    while(seguir=='s')
+    {
+        printf("1- Ingresar 1er operando (A=x)\n");
+        printf("2- Ingresar 2do operando (B=y)\n");
+        printf("3- Calcular la suma (A+B)\n");
+        printf("4- Calcular la resta (A-B)\n");
+        printf("5- Calcular la division (A/B)\n");
+        printf("6- Calcular la multiplicacion (A*B)\n");
+        printf("7- Calcular el factorial (A!)\n");
+        printf("8- Calcular todas las operacione\n");
+        printf("9- Salir\n");
+
+        scanf("%d",&opcion);
+
+        switch(opcion)
+        {
+            case 1:
+                scanf("%d",&numero1);
+                break;
+            case 2:
+                scanf("%d",&numero2);
+                break;
+            case 3:
+                resultado = sumar(numero1,numero2);
+                printf("El resultado de la suma es: %d\n",resultado);
+                break;
+            case 4:
+                resultado = restar(numero1,numero2);
+                printf("El resultado de la resta es: %d\n",resultado);
+                break;
+            case 5:
+                resultado = dividir(numero1,numero2);
+                printf("El resultado de la division es: %d\n",resultado);
+                break;
+            case 6:
+                resultado = multiplicar(numero1,numero2);
+                printf("El resultado de la multiplicacion es: %d\n",resultado);
+                break;
+            case 7:
+
+                break;
+            case 8:
+                resultado = sumar(numero1,numero2);
+                printf("El resultado de la suma es: %d\n",resultado);
+                resultado = restar(numero1,numero2);
+                printf("El resultado de la resta es: %d\n",resultado);
+                resultado = dividir(numero1,numero2);
+                printf("El resultado de la division es: %d\n",resultado);
+                resultado = multiplicar(numero1,numero2);
+                printf("El resultado de la multiplicacion es: %d\n",resultado);
+                break;
+            case 9:
+                seguir = 'n';
+                break;
+        }
+
+}
+    return 0;
+}
+
+
+
+int sumar(int num1, int num2)
+{
+    int resultado;
+    resultado = num1 + num2;
+
+    return resultado;
+}
+
+int restar(int num1, int num2)
+{
+    int resultado;
+    resultado = num1 - num2;
+
+    return resultado;
+}
+
+int dividir(int num1, int num2)
+{
+    int resultado;
+
+    while (num2 ==0)
+    {
+        printf("Error, ingrese un numero distinto de 0");
+        scanf("%d",&num2);
+    }
+    resultado = num1 / num2;
+
+    return resultado;
+}
+
+int multiplicar(int num1, int num2)
+{
+    int resultado;
+
+    resultado = num1 * num2;
+
+    return resultado;
+}
