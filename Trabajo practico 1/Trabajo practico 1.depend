@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1504319570 source:c:\users\frane\desktop\programacion\trabajo practico 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"numeros.h"
+
+1504324529 c:\users\frane\desktop\programacion\trabajo practico 1\numeros.h
+
+1504324529 source:c:\users\frane\desktop\programacion\trabajo practico 1\numeros.c
+	<stdio.h>
+	"numeros.h"
+
