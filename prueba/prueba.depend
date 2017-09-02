@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1504359519 source:c:\users\alumno\desktop\prueba\numeros.c
+	<stdio.h>
+	"numeros.h"
+
+1504358791 c:\users\alumno\desktop\prueba\numeros.h
+
+1504362304 source:c:\users\alumno\desktop\prueba\main.c
+	<stdio.h>
+	<stdlib.h>
+	"numeros.h"
+	"validaciones.h"
+
+1504362296 c:\users\alumno\desktop\prueba\validaciones.h
+
+1504363540 source:c:\users\alumno\desktop\prueba\validaciones.c
+	"validaciones.h"
+
