@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define TAM 3
 
@@ -8,17 +9,18 @@ int mostrarMenu (char[]);
 int main()
 {
     int codigo[TAM] ={0};
-    char descripcion [TAM][50];
-    float precio[TAM];
-    int stock[TAM];
+    char descripcion [TAM][50], auxString [100];
+    float precio[TAM],auxFloat;
+    int stock[TAM],auxInt;
     int opcion;
     int i;
+    int j;
     char seguir = 's';
 
 
     do
     {
-        opcion = mostrarMenu("1.Alta\n2.Mostrar\n5.Salir\nElija una opcion");
+        opcion = mostrarMenu("1.Alta\n2.Mostrar\n3.Ordenar por descripcion\n5.Salir\nElija una opcion");
         switch (opcion)
         {
         case 1:
@@ -46,6 +48,32 @@ int main()
                if (codigo [i]!=0)
                {
                     printf("%s---%d---%.2f---%d\n",descripcion[i],codigo[i],precio[i],stock[i]);
+               }
+           }
+        break;
+        case 3:
+             for (i=0;i<TAM-1;i++)
+           {
+               for (j=i+1;j<TAM;j++)
+               {
+                   if (strcmp(descripcion[i],descripcion [j])>0)
+                   {
+                       strcpy (auxString,descripcion[i]);
+                       strcpy (descripcion[i],descripcion[j]);
+                       strcpy (descripcion[j],auxString);
+
+                       auxFloat= precio[i];
+                       precio[i]= precio[j];
+                       precio[j]=auxFloat;
+
+                       auxInt= stock[i];
+                       stock[i]= stock[j];
+                       stock[j]=auxInt;
+
+                       auxInt= codigo[i];
+                       codigo[i]= codigo[j];
+                       codigo[j]=auxInt;
+                   }
                }
            }
         break;
