@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define TAM 3
+
+int mostrarMenu (char[]);
+
+int main()
+{
+    int codigo[TAM] ={0};
+    char descripcion [TAM][50];
+    float precio[TAM];
+    int stock[TAM];
+    int opcion;
+    int i;
+    char seguir = 's';
+
+
+    do
+    {
+        opcion = mostrarMenu("1.Alta\n2.Mostrar\n5.Salir\nElija una opcion");
+        switch (opcion)
+        {
+        case 1:
+           for (i=0;i<TAM;i++)
+           {
+               if(codigo[i]==0 )
+               {
+                printf("Ingrese codigo ");
+                scanf("%d", &codigo[i]);
+                printf("Ingrese descripcion ");
+                fflush(stdin);
+                gets (descripcion[i]);
+                printf("Ingrese precio ");
+                scanf("%f", &precio[i]);
+                printf("Ingrese stock ");
+                scanf("%d", &stock[i]);
+                break;
+               }
+
+           }
+        break;
+        case 2:
+            for (i=0;i<TAM;i++)
+           {
+               if (codigo [i]!=0)
+               {
+                    printf("%s---%d---%.2f---%d\n",descripcion[i],codigo[i],precio[i],stock[i]);
+               }
+           }
+        break;
+        case 5:
+            seguir = 'n';
+        break;
+        }
+    }while (seguir == 's');
+
+
+    return 0;
+}
+
+    int mostrarMenu (char texto[])
+        {
+            int opcion;
+            printf("%s",texto);
+            scanf("%d",&opcion);
+
+            return opcion;
+        }
