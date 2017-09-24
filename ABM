@@ -1,0 +1,33 @@
+//MODIFICACIONES
+
+void modificarPersonas(ePersona persona[],int tam)
+{
+    int i;
+    int dni;
+    int opcion;
+
+    printf("Ingrese el dni de la persona a modificar: ");
+    scanf("%d",&dni);
+    for (i=0;i<tam;i++)
+    {
+        if (persona[i].estado == 1 && persona[i].dni ==dni)
+        {
+            printf("Los datos son\n Nombre: %s\t DNI: %d\t EDAD: %d\nCual es el dato que desea modificar?\n 1 - NOMBRE\n 2 - EDAD\n",persona[i].nombre,persona[i].dni,persona[i].edad);
+            scanf("%d", &opcion);
+            switch (opcion)
+            {
+            case 1:
+                printf("Que nombre desea asignarle?");
+                fflush(stdin);
+                gets(persona[i].nombre);
+            break;
+            case 2:
+                printf("Que edad desea ingresar?");
+                scanf("%d", &persona[i].edad);
+            break;
+            }
+        }
+
+    }
+
+}
