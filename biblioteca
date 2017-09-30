@@ -43,3 +43,238 @@ float dividir (float num1,float num2)
          acumulador = acumulador*i;
      }
  }
+ 
+ ------------------------------------------------------------------------------------------
+ 
+ #include "validarNumeros.h"
+
+float validaDivision (float numero)
+{
+   while (numero == 0)
+    {
+    printf("ERROR!!! Ingrese un numero diferente a cero");
+    scanf("%f",&numero);
+    }
+    return numero;
+}
+
+
+int validaFactorial (float numero)
+{
+    int i= numero;
+    float resta = numero-i;
+
+    while (resta != 0 || numero < 0)
+    {
+
+        printf("Error!!! Ingrese un numero entero positivo");
+        scanf("%f", &numero);
+        i = numero;
+        resta = numero - i;
+    }
+
+    return i;
+}
+
+
+-------------------------------------------------------------------------------------------------
+
+/** \brief Verifica que el divisor sea distinto de cero,
+ *         en caso de que sea cero pide al usuario que ingrese un numero diferente
+ * \param Representa un numero de tipo flotante.
+ * \return Valor de tipo flotante elegido por el usuario y distinto de cero
+ *
+ */
+float validaDivision (float numero);
+
+/** \brief Verifica que el numero ingresado sea un numero entero positivo,
+ *         en caso de que no lo sea pide al usuario que ingrese un numero diferente
+ * \param Representa un numero de tipo flotante.
+ * \return Valor de tipo entero y positivo elegido por el usuario.
+ *
+ */
+int validaFactorial (float);
+
+--------------------------------------------------------------------------------------------------
+#include "abm.h"
+#include <stdio.h>
+
+int obtenerEspacioLibre(eEstructura lista[],int tam)
+{
+    int i;
+    int aux;
+
+    for(i=0;i<tam;i++)
+    {
+        if (lista[i].estado==0)
+        {
+            aux = i;
+        }
+    }
+    return aux;
+}
+
+int buscarPorEntero(eEstructura lista[],int dato, int tam)
+{
+    int i;
+
+    for (i=0;i<tam;i++)
+    {
+        if (lista[i].estado==1 && lista[i].dato == dato)
+        {
+            printf("Este es el usuario\n%s\t%d\t%d\n",lista[i].vec,lista[i].dato2,lista[i].dato);
+        }
+    }
+    return dato;
+}
+
+void borrar(eEstructura lista[], int tam, int dato)
+{
+    char rta;
+    int i;
+    for (i=0;i<tam;i++)
+    {
+        if (lista[i].estado==1 && lista[i].dato == dato)
+        {
+            printf("Desea eliminarlo? <s/n>\n");
+            rta = getch();
+            if (rta == 's')
+            {
+                lista[i].estado = 0;
+            }
+        }
+    }
+}
+
+void alta (eEstructura lista[], int tam)
+{
+    int i;
+
+    i =obtenerEspacioLibre(lista,tam);
+    lista[i].estado =1;
+    printf("Ingrese *******: ");
+    fflush (stdin);
+    gets (lista[i].vec);
+    printf("Ingrese ****: ");
+    scanf("%d", &lista[i].dato);
+    printf("Ingrese *****: ");
+    scanf ("%d", &lista[i].dato2);
+}
+
+void mostrar(eEstructura lista[],int tam)
+{
+    int i;
+
+    for (i=0;i<tam;i++)
+    {
+      if (lista[i].estado == 1)
+      {
+        printf("NOMBRE\tEDAD\tDNI\n%s\t%d\t%d\n",lista[i].vec,lista[i].dato2,lista[i].dato);
+      }
+    }
+}
+
+void modificar(eEstructura lista[],int tam)
+{
+    int i;
+    int dato;
+    int opcion;
+
+    printf("Ingrese el dato de la persona a modificar: ");
+    scanf("%d",&dato);
+    for (i=0;i<tam;i++)
+    {
+        if (lista[i].estado == 1 && lista[i].dato ==dato)
+        {
+            printf("Los datos son\n dato: %s\t dato: %d\t dato: %d\nCual es el dato que desea modificar?\n 1 - vector\n 2 - dato\n",lista[i].vec,lista[i].dato2,lista[i].dato);
+            scanf("%d", &opcion);
+            switch (opcion)
+            {
+            case 1:
+                printf("Que nombre desea asignarle?");
+                fflush(stdin);
+                gets(lista[i].vec);
+            break;
+            case 2:
+                printf("Que edad desea ingresar?");
+                scanf("%d", &lista[i].dato);
+            break;
+            }
+        }
+
+    }
+
+}
+------------------------------------------------------------------------------------------------------------
+typedef struct {
+
+    char vec[50];
+    int dato;
+    int estado;
+    int dato2;
+
+}eEstructura;
+
+/**
+ * Obtiene el primer indice libre del array.
+ * @param lista el array se pasa como parametro.
+ * @param el tamaño del array.
+ * @return el primer indice disponible
+ */
+int obtenerEspacioLibre(eEstructura lista[], int tam);
+
+/**
+ * Obtiene el indice que coincide con el dato pasado por parametro.
+ * @param lista el array se pasa como parametro.
+ * @param el dato a ser buscado en el array.
+ * @param el tamaño del array.
+ * @return el indice en donde se encuentra el elemento que coincide con el parametro dato
+ */
+int buscarPorEntero(eEstructura lista[], int , int tam);
+
+/** \brief Elimina la seleccion de la lista
+ *
+ * \param Lista el array.
+ * \param tamaño del array
+ * \param el dato de la persona a borrar
+ */
+void borrar(eEstructura lista[], int tam, int dato);
+
+/** \brief Pide los datos
+ *
+ * \param array
+ * \param el tamaño del array
+ *
+ */
+void alta (eEstructura lista[], int);
+
+/** \brief imprime el listado de personas
+ *
+ * \param array de personas
+ * \param tamaño del array
+ *
+ */
+void mostrar(eEstructura lista[],int);
+
+/** \brief presenta un grafico de barras que separa por franja etaria
+ *
+ * \param array de personas
+ * \param tamaño del array
+ *
+ */
+void mostrarGrafico (eEstructura lista[],int tam);
+
+/** \brief Ordena en orden alfabetico los nombres
+ *
+ * \param array de personas
+ * \param tamaño del array
+ *
+ */
+
+void Ordenar(int arr[], int tam)
+
+void modificar(eEstructura lista[],int tam);
+
+
+
+
