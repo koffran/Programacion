@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1446667744 source:c:\users\frane\desktop\programacion\biblio\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1506901014 source:c:\users\frane\desktop\programacion\biblio\operaciones.c
+	<stdio.h>
+	"operaciones.h"
+
+1506901014 c:\users\frane\desktop\programacion\biblio\operaciones.h
+
+1506901048 source:c:\users\frane\desktop\programacion\biblio\verificanum.c
+	<stdio.h>
+	"verificaNum.h"
+
+1506901014 c:\users\frane\desktop\programacion\biblio\verificanum.h
+
+1506904729 source:c:\users\frane\desktop\programacion\biblio\abm.c
+	<stdio.h>
+	<string.h>
+	"abm.h"
+
+1506903500 c:\users\frane\desktop\programacion\biblio\abm.h
+
+1506905181 source:c:\users\frane\desktop\programacion\biblio\graficos.c
+	"graficos.h"
+	<stdio.h>
+
+1506905181 c:\users\frane\desktop\programacion\biblio\graficos.h
+
