@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include "funciones.h"
+
+void inicializarEstado(EMovie* peliculas, int tam)
+{
+    int i;
+    for (i=0;i<tam;i++)
+    {
+        (peliculas+i)->estado = 0;
+    }
+}
+
+void pedirDatos(EMovie* peliculas, int tam)
+{
+    int auxDuracion, auxPuntaje;
+    char auxTitulo[20], auxGenero[20],auxDescripcion [50],auxLink[50];
+
+    printf("Ingrese el titulo:");
+    fflush(stdin);
+    gets(auxTitulo);
+    printf("\nIngrese el genero");
+    fflush(stdin);
+    gets (auxGenero);
+    printf("Ingrese la duracion");
+    scanf("%d",&auxDuracion);
+    printf("Ingrese la descripcion");
+    fflush(stdin);
+    gets (auxDescripcion);
+    printf("Ingrese el puntaje");
+    scanf ("%d",&auxPuntaje);
+}
+
+int buscarLibre (EMovie* peliculas, int tam)
+{
+    int i;
+    int retorno;
+
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+#define TAM 10
+
+int main()
+{
+    char seguir='s';
+    int opcion=0;
+    EMovie peliculas[10];
+
+    inicializarEstado(peliculas,TAM);
+
+    while(seguir=='s')
+    {
+        printf("1- Agregar pelicula\n");
+        printf("2- Borrar pelicula\n");
+        printf("3- Generar pagina web\n");
+        printf("4- Salir\n");
+
+        scanf("%d",&opcion);
+
+        switch(opcion)
+        {
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+               break;
+            case 4:
+                seguir = 'n';
+                break;
+        }
+    }
+
+    return 0;
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+#ifndef FUNCIONES_H_INCLUDED
+#define FUNCIONES_H_INCLUDED
+
+typedef struct{
+    char titulo[20];
+    char genero[20];
+    int duracion;
+    char descripcion[50];
+    int puntaje;
+    char linkImagen[50];
+    int estado;
+}EMovie;
+
+/**
+ *  Agrega una pelicula al archivo binario
+ *  @param movie la estructura a ser agregada al archivo
+ *  @return retorna 1 o 0 de acuerdo a si pudo agregar la pelicula o no
+ */
+int agregarPelicula(EMovie movie);
+
+/**
+ *  Borra una pelicula del archivo binario
+ *  @param movie la estructura a ser eliminada al archivo
+ *  @return retorna 1 o 0 de acuerdo a si pudo eliminar la pelicula o no
+ */
+int borrarPelicula(EMovie movie);
+
+/**
+ *  Genera un archivo html a partir de las peliculas cargadas en el archivo binario.
+ *  @param lista la lista de peliculas a ser agregadas en el archivo.
+ *  @param nombre el nombre para el archivo.
+ */
+void generarPagina(EMovie lista[], char nombre[]);
+void inicializarEstado(EMovie*, int );
+#endif // FUNCIONES_H_INCLUDED
