@@ -31,6 +31,7 @@ void main(void)
     int suma = 0;
     int max;
     int min;
+    float promedio;
 
     printf("Ingrese 10 numeros\n");
 
@@ -55,7 +56,10 @@ void main(void)
             min = aux;
         }
     }
+
+    promedio = suma / (float)i;
     printf("la suma es:%d\n",suma);
     printf("El maximo es:%d\n",max);
     printf("El minimo es:%d\n",min);
+    printf("El promedio es:%.2f\n",promedio);
 }
