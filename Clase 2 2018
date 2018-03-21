@@ -1,0 +1,21 @@
+int pedirNumero(int min,int max,char texto[20])
+{
+    int numero;
+    int flag = 0;
+    
+    do
+    {
+        if (flag ==0)
+        {
+            printf ("%s",texto);
+            flag = 1;
+        }
+        else
+        {
+            printf("Error, reingrese: ");
+        }
+        scanf("%d",&numero);
+    }while (numero<min || numero>max);
+
+    return numero;
+}
