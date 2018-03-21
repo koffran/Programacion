@@ -19,3 +19,43 @@ int pedirNumero(int min,int max,char texto[20])
 
     return numero;
 }
+
+
+-------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+void main(void)
+{
+    int i;
+    int suma = 0;
+    int max;
+    int min;
+
+    printf("Ingrese 10 numeros\n");
+
+    for(i=0; i<10; i++)
+    {
+        int aux;
+        scanf("%d",&aux);
+
+        if (i == 0)
+        {
+            min = aux;
+            max = aux;
+        }
+
+        suma=suma+aux;
+        if(aux>max)
+        {
+            max = aux;
+        }
+        if(aux<min)
+        {
+            min = aux;
+        }
+    }
+    printf("la suma es:%d\n",suma);
+    printf("El maximo es:%d\n",max);
+    printf("El minimo es:%d\n",min);
+}
