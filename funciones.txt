@@ -1,0 +1,160 @@
+void listarCancionesConInterprete (eCancion listaCanciones[],int tamC, eInterprete listaInterprete[],int tamI)
+{
+    int i;
+    int j;
+    eInterprete auxInterprete;
+    printf(" ID \t\tCANCION\t\tDURACION\tINTERPRETE\n ");
+
+    for (i=0;i<tamC;i++)
+    {
+        for (j=0;j<tamI;j++)
+        {
+            if (listaCanciones[i].interprete == listaInterprete[j].idInterprete)
+            {
+                auxInterprete = listaInterprete[j];
+                break;
+            }
+        }
+        printf("%4d\t%20s\t%4d\t%20s\n",listaCanciones[i].idCancion,listaCanciones[i].titulo,listaCanciones[i].duracion,auxInterprete.nombre);
+    }
+}
+
+
+
+
+void listarCancionesEstadounidenses (eCancion listaCanciones[],int tamC, eInterprete listaInterprete[],int tamI)
+{
+    int i;
+    int j;
+    eInterprete auxInterprete;
+    printf("CANCIONES ESTADOUNIDENSES\n");
+
+      /*  for(i=0;i<tamC;i++)
+        {*/
+        for (j=0;j<tamI;j++)
+        {
+            if (stricmp(listaInterprete[j].nacionalidad,"Estadounidense")==0)
+            {
+                printf("%s\n",listaCanciones[j].titulo);
+            }
+        }
+       // }
+}
+
+
+
+void cancionesPorInterprete (eCancion listaCanciones[],int tamC, eInterprete listaInterprete[],int tamI,)
+{
+    int i;
+    int j;
+
+    for (i=0;i<tamI;i++)
+    {
+        printf("INTERPRETE %s\n",listaInterprete[i].nombre);
+        for (j=0;j<tamC;j++)
+        {
+            if (listaCanciones[j].interprete==listaInterprete[i].idInterprete)
+            {
+                printf("\t%s\n",listaCanciones[j].titulo);
+            }
+        }
+    }
+}
+
+
+///////////////////////////////////////////CTYPE.H PARA TOLOWER Y TOUPPER///////////////////////////////////
+
+
+void VincularLibrosConAutores (eLibro libros[],int tamlibros, eAutor autores[],int tamAutores, eLibro_eAutor libro_Autor[], int tamLibroAutor)// tamLibroAutor = tamLibros * tamAutores
+{
+    int i, j, k;
+
+    
+
+        for(i=0;i<tamLibro;i++)
+        {
+        for (j=0; j < tamLibroAutor ;j++) //PODRIA NO CREAR ESTA VARIABLE Y REALIZAR LA MULTIPLICACION CUANDO SEA NECESARIA
+        {
+            if ( libros[i].id == libro_Autor[j].idLibro )
+            {
+                for (k=0; k < tamAutores;k++) 
+        	{
+            	    if ( libro_autor[j].idAutor == autores[k].id )
+            	    {
+		 	// printf (i) datos del libro
+		 	// printf (k) datos del autor
+            	    }
+        	}
+            }
+        }
+        }
+}
+
+
+
+
+void librosDeUnAutor (eLibro libros[],int tamlibros, eAutor autores[],int tamAutores, eLibro_eAutor libro_Autor[], int tamLibroAutor)// tamLibroAutor = tamLibros * tamAutores
+{
+    int i, j, k, aux;
+	printf ("Ingrese el ID del autor que desea buscar: ");//MOSTRAR LOS AUTORES CON SU CORRESPONDIENTE ID
+	scanf ("%d",&aux);
+	
+    
+
+        for(i=0;i<tamAutores;i++)
+        {
+           if ( autores[i].id == aux )
+            {
+                for (j=0; j < tamLibroAutor ;j++) 
+        	{
+            	    if ( autores[i].id == libro_autor[j].idAutor )
+            	    {
+			for (k=0; k < tamLibros ; k++)
+			{
+				if (libro_autor[j].idLibro == libro[k].id)
+				{
+					// printf (i) datos del autor
+		 			// printf (k) datos del libro
+				}
+			}
+		 	
+            	    }
+        	}
+            }
+        
+        }
+}
+
+////////////////////////IMPORTANTE///////////////////////////////
+
+typdef struct{
+
+int idSector;
+
+}eEmpleado;
+
+typdef struct{
+
+int id
+
+}eSector;
+
+
+void deUnoAMuchos (eEmpleado emp[],int tam_Empleados, eSector sec[],int tam_Sectores)
+{
+    int i;
+    int j;
+
+    for (i=0;i<tam_Empleados;i++)
+    {
+        for (j=0;j<tam_Sectores;j++)
+        {
+            if ( emp[j].idSector == sex[j].id)
+            {
+                // printf (i) datos del empleado
+		 // printf (j) datos del sector
+            }
+        }
+    }
+}
+
