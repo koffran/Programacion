@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1539269779 source:c:\users\alumno\desktop\primer parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"propietarios.h"
+	"automovil.h"
+
+1539262135 c:\users\alumno\desktop\primer parcial\propietarios.h
+
+1539268067 source:c:\users\alumno\desktop\primer parcial\propietarios.c
+	"propietarios.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1539266930 c:\users\alumno\desktop\primer parcial\automovil.h
+
+1539268067 source:c:\users\alumno\desktop\primer parcial\automovil.c
+	"automovil.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
